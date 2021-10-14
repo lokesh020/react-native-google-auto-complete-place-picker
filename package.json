@@ -1,7 +1,7 @@
 {
   "name": "react-native-google-auto-complete-place-picker",
   "title": "React Native Google Auto Complete Place Picker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This npm package exposes native iOS and android google auto complete place picker functionality to react native.",
   "main": "index.js",
   "files": [
