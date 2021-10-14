@@ -6,9 +6,7 @@
 
 ### Mostly automatic installation above react-native version 0.60.0
 
-`$ react-native link react-native-google-auto-complete-place-picker`
-
-### Pod install 
+#### Pod install 
 
 `$ cd ios && pod install`
 
