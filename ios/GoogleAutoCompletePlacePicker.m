@@ -61,12 +61,12 @@ RCT_EXPORT_METHOD(pickPlace: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromis
 
 - (void)viewController:(nonnull GMSAutocompleteViewController *)viewController didFailAutocompleteWithError:(nonnull NSError *)error {
   [self->rctPresentedViewController dismissViewControllerAnimated:YES completion:nil];
-  _gReject(@"GMSAutoPlacePicker", [NSString stringWithFormat:@"Some error occured"], error);
+  _gReject(@"GOOGLE_PLACE_PICKER_UNKNOWN_ERROR", [NSString stringWithFormat:@"Some unknown error occured"], error);
 }
 
 - (void)wasCancelled:(nonnull GMSAutocompleteViewController *)viewController {
   [self->rctPresentedViewController dismissViewControllerAnimated:YES completion:nil];
-  _gReject(@"GMSAutoPlacePicker", [NSString stringWithFormat:@"Cancelled by user"], nil);
+  _gReject(@"GOOGLE_PLACE_PICKER_CANCEL_ERROR", [NSString stringWithFormat:@"Cancelled by user"], nil);
 }
 
 

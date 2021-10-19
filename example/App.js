@@ -10,19 +10,21 @@
 
  import React, { Component } from 'react';
  import { Platform, StyleSheet, Text, View,Button } from 'react-native';
- import GmsAutoPlacePicker from 'react-native-google-auto-complete-place-picker';
+ import GoogleAutoCompletePlacePicker from 'react-native-google-auto-complete-place-picker';
  
- export default class App extends Component<{}> {
+ export default class App extends Component {
    state = {
-     status: 'starting',
-     message: '--'
+     locationResult : ""
    };
    componentDidMount() {
    }
    
    pickPlace = () => {
-     GmsAutoPlacePicker.pickPlace().then((placeData)=>{
+    GoogleAutoCompletePlacePicker.pickPlace().then((placeData)=>{
        console.log("place data >>",placeData)
+       this.setState({locationResult:JSON.stringify(placeData)})
+     }).catch((error)=>{
+       console.log(JSON.stringify(error))
      })
    }
    
@@ -31,6 +33,7 @@
      return (
        <View style={styles.container}>
          <Button title = "Pick place" onPress={this.pickPlace}/>
+         <Text style={styles.txtStyle}>{"Location result :- "+this.state.locationResult}</Text>
        </View>
      );
    }
@@ -43,15 +46,11 @@
      alignItems: 'center',
      backgroundColor: '#F5FCFF',
    },
-   welcome: {
-     fontSize: 20,
-     textAlign: 'center',
-     margin: 10,
-   },
-   instructions: {
-     textAlign: 'center',
-     color: '#333333',
-     marginBottom: 5,
+   txtStyle: {
+     alignSelf: 'center',
+     marginTop:20,
+     width:"70%",
+     fontSize:15
    },
  });
  

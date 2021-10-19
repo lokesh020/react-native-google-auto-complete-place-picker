@@ -33,8 +33,8 @@ public class GoogleAutoCompletePlacePickerModule extends ReactContextBaseJavaMod
 
     private static int AUTOCOMPLETE_REQUEST_CODE = 1;
     private static final String E_ACTIVITY_DOES_NOT_EXIST = "E_ACTIVITY_DOES_NOT_EXIST";
-    private static final String E_USER_CANCELLED = "E_USER_CANCELLED";
-    private static final String E_UNKNOWN_ERROR_OCCURRED = "E_UNKNOWN_ERROR_OCCURRED";
+    private static final String E_USER_CANCELLED = "GOOGLE_PLACE_PICKER_CANCEL_ERROR";
+    private static final String E_UNKNOWN_ERROR_OCCURRED = "GOOGLE_PLACE_PICKER_UNKNOWN_ERROR";
 
 
     private Promise mPromise;
