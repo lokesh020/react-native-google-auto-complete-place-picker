@@ -33,11 +33,11 @@ At the top of your `AppDelegate.m`:
 
     @import GooglePlaces;
 
-    And then in your AppDelegate implementation, Add the following to your application:didFinishLaunchingWithOptions :- 
+And then in your AppDelegate implementation, Add the following to your application:didFinishLaunchingWithOptions :- 
 
     NSString *kAPIKey = @"YOUR_PLACES_API_KEY";
     [GMSPlacesClient provideAPIKey:kAPIKey];
-
+    ...
 
 #### Android
 Installation on Android should be completely handled with auto-linking, if you have ensured following steps are performed after installing npm package :-
@@ -62,9 +62,11 @@ GoogleAutoCompletePlacePicker.pickPlace().then((placeData)=>{
 }).catch((error)=>{
     if(error.code == "GOOGLE_PLACE_PICKER_CANCEL_ERROR"){
         console.log("Cancelled by user.")
-    }else{
+     }else if(error.code == "GOOGLE_PLACE_PICKER_UNKNOWN_ERROR"){
         console.log("Some Unknown Error Occured.")
-    }
+     }else{
+        console.log(error.message)
+     }
 })
 
 ```

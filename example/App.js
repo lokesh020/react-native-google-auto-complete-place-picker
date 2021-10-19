@@ -24,7 +24,13 @@
        console.log("place data >>",placeData)
        this.setState({locationResult:JSON.stringify(placeData)})
      }).catch((error)=>{
-       console.log(JSON.stringify(error))
+        if(error.code == "GOOGLE_PLACE_PICKER_CANCEL_ERROR"){
+          console.log("Cancelled by user.")
+        }else if(error.code == "GOOGLE_PLACE_PICKER_UNKNOWN_ERROR"){
+          console.log("Some Unknown Error Occured.")
+        }else{
+          console.log(error.message)
+        }
      })
    }
    
