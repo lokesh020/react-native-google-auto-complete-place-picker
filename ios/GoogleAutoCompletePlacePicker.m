@@ -32,7 +32,7 @@ RCT_EXPORT_METHOD(pickPlace: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromis
 
     // Specify a filter.
     self->_filter = [[GMSAutocompleteFilter alloc] init];
-    self->_filter.type = kGMSPlacesAutocompleteTypeFilterAddress;
+    self->_filter.type = kGMSPlacesAutocompleteTypeFilterNoFilter;
     acController.autocompleteFilter = self->_filter;
     
     // Display the autocomplete view controller.
